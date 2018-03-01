@@ -1,0 +1,63 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
+{\fonttbl\f0\fnil\fcharset0 Monaco;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red255\green255\blue255;}
+{\*\expandedcolortbl;;\csgray\c0;\csgray\c100000;}
+\margl1440\margr1440\vieww28300\viewh17700\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf2 \cb3 \CocoaLigature0 Notes for 11/20\
+\
+Input length of 10 points (t = 0 to 9) with predictions of T = 20, 40, 60, 80 into future. \
+\
+Only done on X, Y, and Z independently.\
+\
+Significant increase in loss after T = 40 (mirrors paper)\
+\
+Results for 10 epochs:\
+\
+X:\
+\
+T = 20: 0.003142\
+T = 40: 1.010518\
+T = 60: 27.918583\
+T = 80: 50.412460\
+\
+Y:\
+\
+T = 20: 0.101557\
+T = 40: 3.927814\
+T = 60: 46.706158\
+T = 80: 86.398545\
+\
+Z:\
+\
+T = 20: 0.021184\
+T = 40: 1.587183\
+T = 60: 85.495270\
+T = 80: 143.502823\
+\
+Errors - could not get model to read in 3 features at once. Output_size and Input_size do not seem to be accurate, rather you have to hardcode them to 3. Even then, you get a [8x1] vs [3x64] error.\
+\
+11/27\
+\
+X, Y, Z together (input_dim = 3)\
+\
+T = 20: 0.01435\
+T = 40: 5.1765\
+T = 60: 49.8916 (~80 initial)\
+T = 80: 114.2398\
+\
+X, Y, Z with velocity (dx,y,z/dt)\
+\
+T = 20: nan error\
+T = 40: 1.0124\
+T = 60: ~40 initial (gives nan error)\
+T = 80: 54.6638\
+\
+\
+- todo: \
+	get actual output and see what loss means in terms of prediction sequence\
+		defn of loss\
+		plot predictions - jupyter \
+	\
+	}

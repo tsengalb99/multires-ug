@@ -1,0 +1,11 @@
+things to do
+
+multires is wrong. Instead of doing the d/var (and having a change in the number of timesteps), go for a fixed number of timesteps and change the delta T (1/variance) at every microstep. This is a better approximation
+
+When you generate variance at every time track, do so for 10, 20 etc microsteps (fixed resolution minitracks)
+
+change multiresolution delta t (see first paragraph, same delta t) to be 1/variance(at current pt) and not 1/variance(at ground truth)
+
+Run all this on van der pol and lorenz
+
+USE TEST DATA - make sure you are not using training data / also try the validation set. Try to get 100 timesteps in the future and not 40...

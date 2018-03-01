@@ -1,0 +1,261 @@
+#!/bin/bash
+
+
+# Use: ./run_exps.sh $MACHINE_ID
+# Experiments defined below.
+
+EXP_NAME=$1
+DATASET=$2
+MODEL_TYPE=$3 # "parafac"
+HPARAM1="$(echo $4 | tr ";" " ")"
+HPARAM2="$(echo $5 | tr ";" " ")"
+
+echo "./run_exps.sh.aws [exp_name] [dataset] [model] [hp1] [hp2]"
+echo "run_exps.sh.aws $EXP_NAME $DATASET $MODEL_TYPE $HPARAM1 $HPARAM2"
+
+timestamp() {
+  date +"%T"
+}
+datestamp() {
+  date +"%D"
+}
+
+PREV_CKPT=/tmp/NONE
+
+if [ "$DATASET" == "bb" ]; then
+
+BASE_DATA_DIR=/tmp/stephan/data/basketball/parsed
+SUFFIX="_200000_sw0.50_tt0.90"
+TRAIN_SIZE=180000
+VAL_SIZE=10000
+TEST_SIZE=10000
+
+elif [ "$DATASET" == "fvf" ]; then
+
+BASE_DATA_DIR=/tmp/stephan/data/fvf
+
+SUFFIX="_200000_tt0.90"
+TRAIN_SIZE=180000
+VAL_SIZE=10000
+TEST_SIZE=10000
+
+fi
+
+ALG="multires_$DATASET$SUFFIX"
+OPT="adam"
+
+
+if [ "$MODEL_TYPE" == "full" ]; then
+NUM_PROCESSES=1
+BS=512
+elif [ "$MODEL_TYPE" == "parafac" ]; then
+NUM_PROCESSES=10
+BS=32
+fi
+
+
+T_SIZE=100
+QUANTILE=0.05
+
+
+# -----------------------------------------------------------------------------
+if [ "$EXP_NAME" == "fixedres" ]; then
+EXP_NAME="fixedres"
+FLAGS="--nofg-sd \
+--nofg-mu-sd \
+--nofg-loss-conv \
+--nofg-grad-ent"
+
+TSD="-1"
+TMU="-1"
+TL="-1"
+TE="-1"
+NUM_EPOCHS=10
+
+# -----------------------------------------------------------------------------
+elif [ "$1" == "multires" ]; then
+EXP_NAME="multires"
+FLAGS="--nofg-sd \
+--nofg-mu-sd \
+--nofg-loss-conv \
+--nofg-grad-ent"
+
+TSD="-1"
+TMU="-1"
+TL="-1"
+TE="-1"
+NUM_EPOCHS=2
+
+# -----------------------------------------------------------------------------
+elif [ "$EXP_NAME" == "loss_conv" ]; then
+EXP_NAME="loss_conv"
+FLAGS="--nofg-sd \
+--nofg-mu-sd \
+--fg-loss-conv \
+--nofg-grad-ent"
+
+TSD="-1"
+TMU="-1"
+TL="$HPARAM1" # loss per example
+TE="-1"
+NUM_EPOCHS=2
+
+# -----------------------------------------------------------------------------
+elif [ "$EXP_NAME" == "sd_div" ]; then
+EXP_NAME="sd_div"
+FLAGS="--fg-sd \
+--nofg-mu-sd \
+--nofg-loss-conv \
+--nofg-grad-ent"
+
+TSD="$HPARAM1"
+TMU="1e-20"
+TL="1e-20"
+TE="-1"
+NUM_EPOCHS=2
+
+# -----------------------------------------------------------------------------
+elif [ "$EXP_NAME" == "mu_sd" ]; then
+EXP_NAME="mu_sd"
+FLAGS="--nofg-sd \
+--fg-mu-sd \
+--nofg-loss-conv \
+--nofg-grad-ent"
+
+TSD="$HPARAM1"
+TMU="$HPARAM2"
+TL="-1"
+TE="-1"
+NUM_EPOCHS=2
+
+# -----------------------------------------------------------------------------
+elif [ "$EXP_NAME" == "ent_div" ]; then
+EXP_NAME="ent_div"
+FLAGS="--nofg-sd \
+--nofg-mu-sd \
+--nofg-loss-conv \
+--fg-grad-ent"
+
+TSD="-1"
+TMU="-1"
+TL="-1"
+TE="$HPARAM1" # random over 100 bins gives ent -ln(1/100) ~ 4.6
+NUM_EPOCHS=2
+
+# -----------------------------------------------------------------------------
+fi
+
+d=$(datestamp)
+d=$(echo ${d} | tr '/' '-')
+t=$(timestamp)
+t="$(echo ${t} | tr ':' '-')"
+SESSION="${d}_${t}"
+
+BASE_LOG_DIR="/tmp/stephan/logs/multires/$ALG/$MODEL_TYPE/$EXP_NAME/$SESSION"
+mkdir -p $BASE_LOG_DIR
+rm -rf $BASE_LOG_DIR/*
+cp $(pwd)/*.sh* $BASE_LOG_DIR
+touch $BASE_LOG_DIR/$(whoami)_$(hostname)
+touch $BASE_LOG_DIR/$ALG_$MODEL_TYPE_$EXP_NAME
+
+exp=0
+
+for lr in 1e-3
+do
+# SGD + mom-0.9 1e-1 works
+# Adam 1e-2 doesn't converge
+
+for bs in $BS
+do
+# keep small so we get a lot of batched gradients
+
+for l2 in 0.0
+do
+# doesn't matter that much
+
+for T in $T_SIZE # history buffer. Checks are done each vis-scalar-freq
+do
+
+for tsd in $TSD
+do
+
+for tmu in $TMU
+do
+
+for tl in $TL
+do
+
+for te in $TE
+do
+
+exp=$(expr $exp + 1)
+
+LOG_DIR="$BASE_LOG_DIR/run_${exp}"
+echo "Experiment ${exp} in ${LOG_DIR}"
+mkdir -p $LOG_DIR
+
+t=$(timestamp)
+t="$(echo ${t} | tr ':' '-')"
+d=$(datestamp)
+d=$(echo ${d} | tr '/' '-')
+
+touch $LOG_DIR/lr-$lr
+touch $LOG_DIR/start_$d_$t
+touch $LOG_DIR/tau-mu_$tmu
+touch $LOG_DIR/tau-sd_$tsd
+touch $LOG_DIR/tau-ls_$tl
+
+python main.py \
+--exp $exp \
+--sess $SESSION \
+--num-processes $NUM_PROCESSES \
+--algo $EXP_NAME \
+--model-type $MODEL_TYPE \
+--dataset $DATASET \
+--train-size $TRAIN_SIZE \
+--val-size $VAL_SIZE \
+--test-size $TEST_SIZE \
+--log-dir $LOG_DIR \
+--data-dir $BASE_DATA_DIR/new_split$SUFFIX \
+--epochs $NUM_EPOCHS \
+--vis-scalar-freq $T_SIZE \
+--ckpt-freq 100 \
+--valid-freq 10000 \
+--vis-image-freq 0 \
+--lr $lr \
+--momentum 0.9 \
+--l2 $l2 \
+--batch-size $bs \
+--dim-k 40 \
+--early-stop-T 0 \
+--tau-mu $tmu \
+--tau-sd $tsd \
+--tau-loss $tl \
+--tau-ent $te \
+--max-grad-norm 1.0 \
+--ent-lo -0.01 \
+--ent-hi 0.01 \
+--ent-quantile $QUANTILE \
+--nbins 20 \
+--T $T \
+--prev-ckpt $PREV_CKPT \
+--noearly-stop \
+--opt $OPT \
+--no-cuda \
+$FLAGS
+
+
+t=$(timestamp)
+t="$(echo ${t} | tr ':' '-')"
+d=$(datestamp)
+d=$(echo ${d} | tr '/' '-')
+touch $LOG_DIR/stop_$d_$t
+
+done
+done
+done
+done
+done
+done
+done
+done

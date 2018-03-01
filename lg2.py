@@ -1,0 +1,76 @@
+import random
+import numpy as np
+import sys
+
+def lorenz(x, y, z, s=10, r=28, b=2.667):
+    x_dot = s*(y - x)
+    y_dot = r*x - y - x*z
+    z_dot = x*y - b*z
+    return x_dot, y_dot, z_dot
+
+def dist(x, y):
+    s = 0
+    for i in range(len(x)):
+        s += (x[i]-y[i])**2
+    return s**0.5
+
+def gen_lorenz_series(x0, y0, z0, dstT, totalStep):
+    dt = 0.01
+    stepCnt = 1
+
+    # Setting initial values
+    pt = [[x0, y0, z0]]
+    xd, yd, zd = lorenz(x0, y0, z0)
+    ptv = [[xd, yd, zd]]
+
+    pGen = [x0, y0, z0]
+    dst = 0
+    # Stepping through "time".
+    while(stepCnt < totalStep):
+#        print(dst)
+        dot = [0,0,0]
+        dot[0], dot[1], dot[2] = lorenz(pGen[0], pGen[1], pGen[2])
+#        print(dot)
+        for i in range(3):
+            pGen[i] += dot[i]*dt
+        dst += dist(pGen, [pGen[0]-dot[0]*dt, pGen[1]-dot[1]*dt, pGen[2]-dot[2]*dt])
+        if(dst >= dstT):
+#            print(dst, dstT)
+            pt.append([pGen[0], pGen[1], pGen[2]])
+            dst = 0
+            stepCnt += 1
+            ptv.append(np.dot(dt,dot))
+    pt = np.add(-1*np.min(pt), pt)
+    pt = np.dot(1/np.max(pt), pt)
+    #save the sequence for training
+    xss = []; yss = []; zss = []
+    xv = []; yv = []; zv = []
+    for i in range(len(pt)):
+        xss.append(pt[i][0])
+        yss.append(pt[i][1])
+        zss.append(pt[i][2])
+        xv.append(ptv[i][0])
+        yv.append(ptv[i][1])
+        zv.append(ptv[i][2])
+    lorenz_series = np.transpose(np.vstack((xss,yss,zss,xv,yv,zv)))
+    return lorenz_series
+
+def rrange():
+    return random.random()/5-0.1
+
+velo = bool(int(sys.argv[2]))
+print(velo)
+res = []
+for iter in range(1000):
+    a = gen_lorenz_series(rrange(), rrange(), rrange(), 10, int(sys.argv[1]))
+    tA = []
+    for i in a:
+        if(velo):
+            tA.append(i)
+        else:
+            tA.append(i[0:3])
+#    res.append(np.ndarray.tolist(a))
+#    print(tA)
+    res.append(tA)
+
+np.save("data/lorenz.npy", np.array(res))

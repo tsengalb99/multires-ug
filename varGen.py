@@ -1,0 +1,17 @@
+from lg2var3 import *
+import random
+import numpy as np
+
+#get simulated variance
+def varGen(x, y, z, npts, rrange=0.05, timesteps=False, series=lorenz):
+    varlst = [[],[],[]] #x y and z
+    for i in range(npts):
+        nx = random.random()*rrange-rrange/2.0 + x
+        ny = random.random()*rrange-rrange/2.0 + y
+        nz = random.random()*rrange-rrange/2.0 + z
+        dx, dy, dz = series(nx, ny, nz)
+        varlst[0].append(dx)
+        varlst[1].append(dy)
+        varlst[2].append(dz)
+    return np.var(varlst[0]), np.var(varlst[1]), np.var(varlst[2])
+        

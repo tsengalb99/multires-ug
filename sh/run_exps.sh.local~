@@ -1,0 +1,115 @@
+#!/bin/bash
+
+# PROJECT_NAME=$1
+# EXP_NAME=$2
+# DATASET=$3
+# MODEL_TYPE=$4
+
+PROJECT_NAME=amr #adaptive multiresolution
+
+HPARAM1="$(echo $5 | tr ";" " ")"
+
+timestamp() {
+  date +"%T"
+}
+datestamp() {
+  date +"%D"
+}
+
+PREV_CKPT="/tmp/NONE"
+BASE_DATA_DIR=/tmp
+
+SUFFIX="_10000"
+TRAIN_SIZE=10000
+VAL_SIZE=1000
+TEST_SIZE=1000
+
+#model parameters - may need to change
+
+OPT="adam"
+BS=8
+HIDDEN_SIZE=64
+
+NUM_PROCESSES=10
+
+
+d=$(datestamp)
+d=$(echo ${d} | tr '/' '-')
+t=$(timestamp)
+t="$(echo ${t} | tr ':' '-')"
+SESSION="${d}_${t}"
+
+BASE_LOG_DIR="./logs/$PROJECT_NAME/$SESSION"
+mkdir -p $BASE_LOG_DIR
+rm -rf $BASE_LOG_DIR/*
+# cp $(pwd)/*.sh* $BASE_LOG_DIR
+touch $BASE_LOG_DIR/$(whoami)_$(hostname)
+
+LOG_DIR="$BASE_LOG_DIR/run_${exp}"
+echo $(expr $1 + 10)
+echo $(expr $2 / 3 - 1)
+#python lg2var3.py $(expr $1 + 10) $(expr $2 / 3 - 1) $LOG_DIR #generate data
+
+exp=0
+
+for lr in 1e-2
+do
+
+    for bs in $BS
+    do
+
+        for hs in $HIDDEN_SIZE
+        do
+
+            for l2 in 0.0
+            do
+
+            exp=$(expr $exp + 1)
+
+            LOG_DIR="$BASE_LOG_DIR/run_${exp}"
+            echo "Experiment ${exp} in ${LOG_DIR}"
+            mkdir -p $LOG_DIR
+
+            t=$(timestamp)
+            t="$(echo ${t} | tr ':' '-')"
+            d=$(datestamp)
+            d=$(echo ${d} | tr '/' '-')
+
+            touch $LOG_DIR/lr-$lr
+            touch $LOG_DIR/start_$d_$t
+
+            python main.py \
+            --exp $exp \
+            --sess $SESSION \
+            --num-processes $NUM_PROCESSES \
+            --train-size $TRAIN_SIZE \
+            --val-size $VAL_SIZE \
+            --test-size $TEST_SIZE \
+            --log-dir $LOG_DIR \
+            --batch-size $bs \
+            --input-len 10 \
+            --output-len $1 \
+            --state-dim $2\
+            --hidden-size $hs \
+            --vis-scalar-freq 10 \
+            --ckpt-freq 100 \
+            --valid-freq 100 \
+            --vis-image-freq 0 \
+            --lr $lr \
+            --l2 $l2 \
+            --momentum 0.9 \
+            --prev-ckpt $PREV_CKPT \
+            --opt $OPT
+#            --no-cuda True
+            # $FLAGS
+
+            t=$(timestamp)
+            t="$(echo ${t} | tr ':' '-')"
+            d=$(datestamp)
+            d=$(echo ${d} | tr '/' '-')
+            touch $LOG_DIR/stop_$d_$t
+
+            done
+        done
+    done
+done

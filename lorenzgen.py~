@@ -1,0 +1,69 @@
+import random
+import numpy as np
+import sys
+
+def lorenz(x, y, z, s=10, r=28, b=2.667):
+    x_dot = s*(y - x)
+    y_dot = r*x - y - x*z
+    z_dot = x*y - b*z
+    return x_dot, y_dot, z_dot
+
+def gen_lorenz_series(x0, y0, z0, num_steps, num_freq):
+    dt = 0.01
+    stepCnt = num_steps
+
+    # Need one more for the initial values
+    xs = np.empty((stepCnt,))
+    ys = np.empty((stepCnt,))
+    zs = np.empty((stepCnt,))
+
+    # Setting initial values
+    xs[0] = x0
+    ys[0] = y0
+    zs[0] = z0
+
+    xss = np.empty((stepCnt//num_freq,))
+    yss = np.empty((stepCnt//num_freq,))
+    zss = np.empty((stepCnt//num_freq,))
+    xv = np.empty((stepCnt//num_freq,))
+    yv = np.empty((stepCnt//num_freq,))
+    zv = np.empty((stepCnt//num_freq,))
+    # Stepping through "time".
+    j = 0
+    for i in range(stepCnt-1):
+        # Derivatives of the X, Y, Z state
+        x_dot, y_dot, z_dot = lorenz(xs[i], ys[i], zs[i])
+        if i%num_freq ==0:
+            xss[j] = xs[i]
+            yss[j] = ys[i]
+            zss[j] = zs[i]
+            xv[j] = x_dot*dt/2
+            yv[j] = y_dot*dt/2
+            zv[j] = z_dot*dt/2
+            j += 1
+        xs[i + 1] = xs[i] + (x_dot * dt)
+        ys[i + 1] = ys[i] + (y_dot * dt)
+        zs[i + 1] = zs[i] + (z_dot * dt)
+
+    #save the sequence for training
+    lorenz_series = np.transpose(np.vstack((xss,yss,zss,xv,yv,zv)))
+    return lorenz_series
+
+def rrange():
+    return random.random()/5-0.1
+
+velo = bool(int(sys.argv[2]))
+print(velo)
+res = []
+for iter in range(1000):
+    a = gen_lorenz_series(rrange(), rrange(), rrange(), int(sys.argv[1])*10, 10)
+    tA = []
+    for i in a:
+        if(velo):
+            tA.append(i)
+        else:
+            tA.append(i[0:3])
+#    res.append(np.ndarray.tolist(a))
+    res.append(tA)
+
+np.save("data/lorenz.npy", np.array(res))

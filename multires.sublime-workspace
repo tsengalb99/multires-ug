@@ -1,0 +1,765 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"loss",
+				"loss-conv"
+			],
+			[
+				"entrop",
+				"entropy_check\t(evaluate.py)"
+			],
+			[
+				"FN_",
+				"FN_F_POSE〔variable〕"
+			],
+			[
+				"batch_",
+				"batch_idx"
+			],
+			[
+				"init",
+				"init_weights"
+			],
+			[
+				"outf",
+				"outfile_tt"
+			],
+			[
+				"num",
+				"num_processes"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "paper/main.tex",
+			"settings":
+			{
+				"buffer_size": 1716,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "paper/aistats2018.sty",
+			"settings":
+			{
+				"buffer_size": 12373,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 375.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"pdflate",
+				"Build With: LaTeX - PdfLaTeX"
+			],
+			[
+				"basic",
+				"Build With: LaTeX - Basic Builder"
+			],
+			[
+				"delete",
+				"LaTeXTools: Delete temporary files"
+			],
+			[
+				"det",
+				"LaTeXTools: Delete temporary files"
+			],
+			[
+				"git",
+				"Build With: git_push"
+			],
+			[
+				"git_",
+				"Build With: git_push"
+			],
+			[
+				"delet",
+				"LaTeXTools: Delete temporary files"
+			],
+			[
+				"",
+				"Build With: git_push"
+			],
+			[
+				"git_p",
+				"Build With: git_push"
+			],
+			[
+				"basic ",
+				"Build With: LaTeX - Basic Builder"
+			],
+			[
+				"gi",
+				"Build With: git_push"
+			],
+			[
+				"bai",
+				"Build With: LaTeX - Basic Builder"
+			],
+			[
+				"build basic",
+				"Build With: LaTeX - Basic Builder"
+			],
+			[
+				"bib_",
+				"Build With: bib_this"
+			],
+			[
+				"bib",
+				"Build With: LaTeX - Basic Builder - PdfLaTeX"
+			],
+			[
+				"pdf_",
+				"Build With: pdf_this"
+			],
+			[
+				"pdflae",
+				"Build With: LaTeX - PdfLaTeX"
+			],
+			[
+				"live",
+				"MarkdownLivePreview: Edit Current File"
+			],
+			[
+				"build bas",
+				"Build With: LaTeX - Basic Builder"
+			],
+			[
+				"build",
+				"Build: Cancel"
+			],
+			[
+				"latextools",
+				"LaTeXTools: Check system"
+			],
+			[
+				"dele",
+				"LaTeXTools: Delete temporary files"
+			],
+			[
+				"build ",
+				"Build With: LaTeX"
+			],
+			[
+				"pdfla",
+				"Build With: LaTeX - PdfLaTeX"
+			],
+			[
+				"del",
+				"LaTeXTools: Delete temporary files"
+			],
+			[
+				"pdfl",
+				"Build With: LaTeX - PdfLaTeX"
+			],
+			[
+				"pdflatex",
+				"Build With: LaTeX - PdfLaTeX"
+			],
+			[
+				"pdf",
+				"Build With: LaTeX - PdfLaTeX"
+			],
+			[
+				"prefere",
+				"Preferences: Settings"
+			],
+			[
+				"prefe",
+				"Preferences: Settings"
+			],
+			[
+				"syntax py",
+				"Set Syntax: Python"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"intsall ",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 410.0
+	},
+	"console":
+	{
+		"height": 108.0,
+		"history":
+		[
+			"import os",
+			"python",
+			"cd",
+			"pwd",
+			"import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": true,
+		"show_tabs": false,
+		"side_bar_visible": true,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/stephanzheng/projects/multi-resolution-tensor-training",
+		"/Users/stephanzheng/projects/multi-resolution-tensor-training/paper"
+	],
+	"file_history":
+	[
+		"/Users/stephanzheng/Downloads/venmo.csv",
+		"/Users/stephanzheng/Downloads/NBA_EVENT_CODES.XML",
+		"/Users/stephanzheng/projects/multi-resolution-tensor-training/notes.md",
+		"/Users/stephanzheng/projects/multi-resolution-tensor-training/paper/sec-conclusions.tex",
+		"/Users/stephanzheng/projects/multi-resolution-tensor-training/paper/sec-quantitative-results.tex",
+		"/Users/stephanzheng/projects/multi-resolution-tensor-training/paper/sec-qualitative-results.tex",
+		"/Users/stephanzheng/projects/multi-resolution-tensor-training/paper/main.tex",
+		"/Users/stephanzheng/projects/multi-resolution-tensor-training/fetch_from_s3.sh",
+		"/Users/stephanzheng/projects/multi-resolution-tensor-training/paper/main.bbl",
+		"/Users/stephanzheng/projects/multi-resolution-tensor-training/paper/sec-intro.tex",
+		"/Users/stephanzheng/projects/multi-resolution-tensor-training/paper/sec-related.tex",
+		"/Users/stephanzheng/projects/multi-resolution-tensor-training/run_exps.sh.local",
+		"/Users/stephanzheng/projects/multi-resolution-tensor-training/run_exps.sh.aws",
+		"/Users/stephanzheng/projects/multi-resolution-tensor-training/fetch_from_remote.sh",
+		"/Users/stephanzheng/projects/multi-resolution-tensor-training/sync_with_s3.sh",
+		"/Users/stephanzheng/projects/multi-resolution-tensor-training/start_remote.sh",
+		"/Users/stephanzheng/projects/multi-resolution-tensor-training/paper/sec-theory.tex",
+		"/Users/stephanzheng/projects/multi-resolution-tensor-training/paper/sec-model.tex",
+		"/Users/stephanzheng/projects/multi-resolution-tensor-training/paper/shortcuts.tex",
+		"/Users/stephanzheng/projects/multi-resolution-tensor-training/paper/sec-supp.tex",
+		"/Users/stephanzheng/projects/multi-resolution-tensor-training/paper/refs.bib",
+		"/Users/stephanzheng/projects/multi-resolution-tensor-training/upscale.py",
+		"/Users/stephanzheng/projects/multi-resolution-tensor-training/main.py",
+		"/Users/stephanzheng/projects/multi-resolution-tensor-training/train.py",
+		"/Users/stephanzheng/projects/multi-resolution-tensor-training/manager.py",
+		"/Users/stephanzheng/projects/multi-resolution-tensor-training/evaluate.py",
+		"/Users/stephanzheng/projects/multi-resolution-tensor-training/experiments.py",
+		"/Users/stephanzheng/projects/multi-resolution-tensor-training/model.py",
+		"/Users/stephanzheng/projects/multi-resolution-tensor-training/paper/sec-abstract.tex",
+		"/Users/stephanzheng/projects/multi-resolution-tensor-training/datareader.py",
+		"/Users/stephanzheng/projects/multi-resolution-tensor-training/untitled.py",
+		"/Users/stephanzheng/projects/multi-resolution-tensor-training/data/splits_fvf.py",
+		"/Users/stephanzheng/projects/multi-resolution-tensor-training/data/splits.py",
+		"/Users/stephanzheng/projects/multi-resolution-tensor-training/paper/previous/nips15/sec-4-method.tex",
+		"/Users/stephanzheng/projects/multi-resolution-tensor-training/paper/main.aux",
+		"/Users/stephanzheng/projects/multi-resolution-tensor-training/paper/previous/nips15/sec-5-experiments.tex",
+		"/Users/stephanzheng/projects/multi-resolution-tensor-training/paper/previous/icdm14/shortcuts.tex",
+		"/Users/stephanzheng/projects/multi-resolution-tensor-training/paper/previous/icdm14/IEEEtran.cls",
+		"/Users/stephanzheng/projects/multi-resolution-tensor-training/paper/previous/icdm14/sec-4-method.tex",
+		"/Users/stephanzheng/projects/multi-resolution-tensor-training/paper/previous/icdm14/sec-5-experiments.tex",
+		"/Users/stephanzheng/Library/Application Support/Sublime Text 3/Packages/User/untitled.sublime-build",
+		"/Users/stephanzheng/projects/multi-resolution-tensor-training/shared_optim.py",
+		"/Users/stephanzheng/projects/multi-resolution-tensor-training/create_tmux.sh",
+		"/Users/stephanzheng/projects/multi-resolution-tensor-training/multires.sublime-project",
+		"/Users/stephanzheng/projects/multi-resolution-tensor-training/run_exps.sh.copy",
+		"/Users/stephanzheng/projects/multi-resolution-tensor-training/run_exps.sh",
+		"/usr/local/texlive/2017/texmf-dist/tex/latex/caption/subcaption.sty",
+		"/Users/stephanzheng/projects/multi-resolution-tensor-training/paper/sec-experiments.tex",
+		"/Users/stephanzheng/projects/multi-resolution-tensor-training/paper/main.log",
+		"/Users/stephanzheng/projects/multi-resolution-tensor-training/train_single.py",
+		"/Users/stephanzheng/projects/multi-resolution-tensor-training/util.py",
+		"/Users/stephanzheng/projects/multi-resolution-tensor-training/run_train.sh",
+		"/Users/stephanzheng/Library/Application Support/Sublime Text 3/Packages/User/git_push.sublime-build",
+		"/Users/stephanzheng/projects/ELF/bridge/bridge_dds.h",
+		"/Users/stephanzheng/projects/ELF/atari/game_context.h",
+		"/Users/stephanzheng/projects/ELF/bridge/game.py",
+		"/Users/stephanzheng/projects/ELF/run_train.sh",
+		"/Users/stephanzheng/projects/ELF/bridge/CMakeLists.txt.linux",
+		"/Users/stephanzheng/projects/ELF/bridge/game_context.h",
+		"/Users/stephanzheng/projects/ELF/bridge/bridge_dds.h.tmp",
+		"/Users/stephanzheng/projects/ELF/bridge/CMakeLists.txt.mac",
+		"/Users/stephanzheng/projects/Automated-multires-spatial-prediction/cpp/launcher/settings_bb/labels_bb.json",
+		"/Users/stephanzheng/projects/Automated-multires-spatial-prediction/cpp/launcher/settings_bb/features_bb_cms_c10.json",
+		"/Users/stephanzheng/projects/Automated-multires-spatial-prediction/cpp/util/IOController.cc",
+		"/Users/stephanzheng/projects/Automated-multires-spatial-prediction/cpp/core/Trainer.cc",
+		"/Users/stephanzheng/projects/ELF/rts/game_TD/python_wrapper.cc",
+		"/Users/stephanzheng/projects/ELF/elf/ai_comm.h",
+		"/Users/stephanzheng/projects/ELF/atari/model.py",
+		"/Users/stephanzheng/projects/ELF/elf/hist.h",
+		"/Users/stephanzheng/projects/ELF/atari/atari_game.cc",
+		"/Users/stephanzheng/projects/ELF/elf/state_collector.h",
+		"/Users/stephanzheng/projects/ELF/rlpytorch/stats.py",
+		"/Users/stephanzheng/projects/ELF/rlpytorch/rlmethod_common.py",
+		"/Users/stephanzheng/projects/ELF/atari/atari_game_specific.h",
+		"/Users/stephanzheng/projects/ELF/elf_python/memory_receiver.py",
+		"/Users/stephanzheng/projects/ELF/bridge/build.sh",
+		"/Users/stephanzheng/projects/ELF/docs/source/wrapper-python.rst",
+		"/Users/stephanzheng/projects/ELF/rlpytorch/trainer.py",
+		"/Users/stephanzheng/projects/ELF/bridge/model.py",
+		"/Users/stephanzheng/projects/ELF/bridge/bridge_game.cc",
+		"/Users/stephanzheng/projects/ELF/docs/source/rlpytorch.rst",
+		"/Users/stephanzheng/projects/ELF/build.sh",
+		"/Users/stephanzheng/projects/ELF/bridge/bridge_game.h",
+		"/Users/stephanzheng/projects/ELF/README.md",
+		"/Users/stephanzheng/projects/ELF/elf/utils_elf.py",
+		"/Users/stephanzheng/projects/ELF/bridge/bridge_game_specific.h",
+		"/Users/stephanzheng/projects/ELF/rts/game_CF/python_wrapper.cc",
+		"/Users/stephanzheng/projects/ELF/elf/comm_template.h",
+		"/Users/stephanzheng/projects/ELF/rlpytorch/rlmethod_base.py",
+		"/Users/stephanzheng/projects/ELF/rlpytorch/model_base.py",
+		"/Users/stephanzheng/projects/ELF/rlpytorch/model_interface.py",
+		"/Users/stephanzheng/projects/ELF/bridge/CMakeLists.txt",
+		"/Users/stephanzheng/Library/Application Support/Sublime Text 3/Packages/User/Package Control.sublime-settings",
+		"/Users/stephanzheng/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/stephanzheng/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings"
+	],
+	"find":
+	{
+		"height": 37.0
+	},
+	"find_in_files":
+	{
+		"height": 95.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"copyrightspace",
+			"Notice",
+			"appearing",
+			"+",
+			" $",
+			"sensitive",
+			"analysis",
+			"johnsonblitz",
+			"blitz",
+			"d^i",
+			"^i",
+			"x_i",
+			"frame",
+			"we used",
+			"epsilot",
+			"_k",
+			"n^",
+			"_n",
+			"{n}",
+			"$k$",
+			"$n$",
+			"^{k-1}",
+			"^k",
+			"\\V{w}",
+			"^k",
+			"{k+1}",
+			"{k}",
+			"ddd",
+			"{k}",
+			"k",
+			"V{w}",
+			"ddd",
+			"^{d",
+			"we use",
+			"we use ",
+			"\\abs",
+			"vty",
+			"NUM_EPOCHS=3",
+			"& 0 & 0.5 & 0.5 \\\\",
+			"& 0 & 0.5 & 0.5 & 0.5 \\\\",
+			"& 60\\% & 65\\% & 70\\% \\\\",
+			"QUANTILE=0.075",
+			"0.2\\linewidth",
+			"& 0 & 0.5 & 0.5 & 0.5 & 0.5 & 0.5 \\\\",
+			"Sample",
+			"sample",
+			"complexity",
+			"sample complexity",
+			"Blitz",
+			"overline{",
+			"training",
+			"linear",
+			"is linear",
+			": ",
+			"i-",
+			"Anand",
+			"anand",
+			"animakumar",
+			"anima",
+			"section",
+			"shared_q.put",
+			"pic",
+			"Yue",
+			"Adams",
+			"loss",
+			"mathbf",
+			"\\bm",
+			"mathbf",
+			"With this",
+			"g_\\ww,d_{i+1}",
+			"g_\\ww,d_i",
+			"{g_\\ww,d_i",
+			"self.counts",
+			"self.hist",
+			"self.counts",
+			"self.hist",
+			"self.ent",
+			"_def",
+			"_bh",
+			"feat_bh",
+			"f_bh",
+			"feat_bh_lvl1",
+			"NUM_EPOCHS=2",
+			"shared_q.put",
+			"# \"{}-loss",
+			"infile_neg",
+			"fi_neg",
+			"FN_GT_WEAK",
+			"weak_test_idx",
+			"weak_train_idx",
+			"strong_train_idx",
+			"weak_train_idx",
+			"$h$ is ",
+			"as in Algo",
+			".replace(\"defender\"",
+			".replace(\"occupancy_\", \"\").replace(\"coarsegrid_\", \"\").replace(\"raw_\", \"\")",
+			".replace(\"ballh\"",
+			".replace(\"_c\", \"_lvl\").",
+			"gtruth_ballhandler",
+			"gt_shot_made",
+			"NUM_PROCESSES=15",
+			"NUM_PROCESSES=1",
+			"NUM_EPOCHS=4",
+			"NUM_EPOCHS=2",
+			"NUM_PROCESSES=20",
+			"Intuiti",
+			"eq:termcond",
+			"& 0.5 & 0.5 & 0.5 & 0.5 \\\\",
+			"NUM_PROCESSES=15",
+			"criteria",
+			"decision",
+			"\\tb{Weights}",
+			"\\e{",
+			"\\tb{TensorFactors}",
+			"\\w^",
+			"\\e{",
+			"\\e",
+			"\\tb{Tensor}",
+			"\\Theta",
+			"Fixed",
+			"\\theta",
+			"fig:basketball_activations",
+			"basketball_activations",
+			"activations",
+			"height=100pt",
+			"fvf_archetypes_smooth",
+			"dense",
+			"footnote"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"eq:ent_cond",
+			"\\ww",
+			"vis_spatial_im_row_major",
+			"tau_sd"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "paper/main.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1716,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1191,
+								1191
+							]
+						],
+						"settings":
+						{
+							"markdonw_live_preview_last_run": 1508129589.19,
+							"syntax": "Packages/LaTeX/LaTeX.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 370.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "paper/aistats2018.sty",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 12373,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3135,
+								2404
+							]
+						],
+						"settings":
+						{
+							"markdonw_live_preview_last_run": 1508130135.18,
+							"syntax": "Packages/LaTeX/TeX.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 727.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 35.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 163.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.latextools":
+	{
+		"height": 283.0
+	},
+	"pinned_build_system": "",
+	"project": "multires.sublime-project",
+	"replace":
+	{
+		"height": 46.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"main.tex",
+				"multi-resolution-tensor-training/paper/main.tex"
+			],
+			[
+				"related",
+				"multi-resolution-tensor-training/paper/sec-related.tex"
+			],
+			[
+				"model",
+				"multi-resolution-tensor-training/paper/sec-model.tex"
+			],
+			[
+				"the",
+				"multi-resolution-tensor-training/paper/sec-theory.tex"
+			],
+			[
+				"quanti",
+				"multi-resolution-tensor-training/paper/sec-quantitative-results.tex"
+			],
+			[
+				"main.te",
+				"multi-resolution-tensor-training/paper/main.tex"
+			],
+			[
+				"remote",
+				"multi-resolution-tensor-training/start_remote.sh"
+			],
+			[
+				"main",
+				"multi-resolution-tensor-training/paper/main.tex"
+			],
+			[
+				"maintex",
+				"multi-resolution-tensor-training/paper/main.tex"
+			],
+			[
+				"quant",
+				"multi-resolution-tensor-training/paper/sec-quantitative-results.tex"
+			],
+			[
+				"mainte",
+				"multi-resolution-tensor-training/paper/main.tex"
+			],
+			[
+				"fetc",
+				"multi-resolution-tensor-training/fetch_from_s3.sh"
+			],
+			[
+				"tart",
+				"multi-resolution-tensor-training/start_remote.sh"
+			],
+			[
+				"experim",
+				"multi-resolution-tensor-training/experiments.py"
+			],
+			[
+				"theory",
+				"multi-resolution-tensor-training/paper/sec-theory.tex"
+			],
+			[
+				"local",
+				"multi-resolution-tensor-training/run_exps.sh.local"
+			],
+			[
+				"aws",
+				"multi-resolution-tensor-training/run_exps.sh.aws"
+			],
+			[
+				"upscale",
+				"multi-resolution-tensor-training/upscale.py"
+			],
+			[
+				"fetch",
+				"multi-resolution-tensor-training/fetch_from_remote.sh"
+			],
+			[
+				"evalu",
+				"multi-resolution-tensor-training/evaluate.py"
+			],
+			[
+				"main.py",
+				"multi-resolution-tensor-training/main.py"
+			],
+			[
+				"evaluate",
+				"multi-resolution-tensor-training/evaluate.py"
+			],
+			[
+				"notes",
+				"multi-resolution-tensor-training/notes.md"
+			],
+			[
+				"start_",
+				"multi-resolution-tensor-training/start_remote.sh"
+			],
+			[
+				"quali",
+				"multi-resolution-tensor-training/paper/sec-qualitative-results.tex"
+			],
+			[
+				"model.te",
+				"multi-resolution-tensor-training/paper/sec-model.tex"
+			],
+			[
+				"abstr",
+				"multi-resolution-tensor-training/paper/sec-abstract.tex"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"~/projects/multi-resolution-tensor-training/multires.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 195.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
